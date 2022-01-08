@@ -1,7 +1,7 @@
 /* 
 Theme Name: tomibady
 Text Domain: tomibady
-Version: 1.0
+Version: 1.5
 Description: Custom WordPress Premium Theme for a Creative company
 Tags: premium, theme, company, creative, business, responsive, fancy
 Author: Opeoluwa Aboaba
@@ -54,6 +54,7 @@ Author URI: https://github.com/tomibady
 
 html {
     line-height: 1.15;
+    margin-top: -32px !important;
 }
 body {
     color: var(--secondary);
