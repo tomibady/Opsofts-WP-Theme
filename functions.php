@@ -7,6 +7,45 @@ function tomibady_theme_support() {
 
 add_action( 'after_setup_theme', 'tomibady_theme_support' );
 
+function tomibady_menus() {
+    $locations = array(
+        'primary' => "Desktop Primary Left Sidebar",
+        'footer' => "Footer Menu Items"
+    );
+
+    register_nav_menus( $locations );
+
+}
+
+add_action('init', 'tomibady_menus');
+
+//Menu Walker Class
+class tomibady_menu_walker extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		$output .= "<li class='" .  implode(" nav-item ", $item->classes) . "'>";
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '<a class="nav-link" href="' . $item->url . '">';
+		}else {
+			$output .= '<span>';
+		}
+ 
+		$output .= $item->title;
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '</a>';
+		} else {
+			$output .= '</span>';
+		}
+        if ($depth == 0 && !empty($item->description)) {
+			$output .= '<span class="description">' . $item->description . '</span>';
+		}
+        if ($args->walker->has_children) {
+            $output .= '<i class="caret fa fa-angle-down"></i>';
+        }
+	}
+}
+
 //Dynamic Header Stylesheet links
 function tomibady_register_styles() {
     $version = wp_get_theme()->get( 'Version' );

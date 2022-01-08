@@ -21,7 +21,20 @@
 			</button>
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
-				<img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo" >			
+				<img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo" >	
+                
+                <?php
+                    wp_nav_menu( 
+                      array(
+                        'menu' => 'primary',
+                        'container' => '',
+                        'theme_location' => 'primary',
+                        'items_wrap' => '<ul id="" class="navbar-nav flex-column text-sm-center text-md-left">%3$s</ul>',
+                        'walker' => new tomibady_menu_walker(),
+                        'show_carets' => true
+                      )
+                    );
+                ?>
 				
 				<ul class="navbar-nav flex-column text-sm-center text-md-left">
 					<li class="nav-item active">
