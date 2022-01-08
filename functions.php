@@ -3,6 +3,7 @@
 function tomibady_theme_support() {
     //Dynamic Page Title Tag
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
 }
 
 add_action( 'after_setup_theme', 'tomibady_theme_support' );
